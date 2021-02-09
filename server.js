@@ -24,7 +24,8 @@ app.use(express.static('website'));
 // Setup Server
 const port = 8000;
 const server = app.listen(port, listening);
-function listening(){
+
+function listening() {
     console.log('server running');
     console.log(`server running on localhost: ${port}`);
 }
@@ -32,7 +33,8 @@ function listening(){
 const data = [];
 
 app.post('/add', addInfo);
-function addInfo(req, res){
+
+function addInfo(req, res) {
     projectData['date'] = req.body.date;
     projectData['temp'] = req.body.temp;
     projectData['content'] = req.body.content;
@@ -40,6 +42,7 @@ function addInfo(req, res){
 }
 // get /all callback
 app.get('/all', getInfo);
-function getInfo(req, res){
+
+function getInfo(req, res) {
     res.send(projectData);
 }
